@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeAura Salon | Where Beauty Meets Elegance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght=0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            light: '#E5C475',
+                            DEFAULT: '#C5A059',
+                            dark: '#A4823D',
+                        },
+                        luxuryBlack: '#0F0F0F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .page-view { display: none; }
+        .page-view.active { display: block; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-[#F9F9F7] overflow-x-hidden">
+
+    <nav class="absolute top-0 left-0 w-full z-50 bg-transparent px-6 py-6 flex justify-between items-center max-w-7xl mx-auto left-0 right-0">
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('home')">
+            <div class="text-gold font-serif text-2xl font-bold tracking-wide leading-none">
+                LuxeAura
+                <span class="text-[9px] uppercase tracking-[0.3em] block text-gray-400 mt-1">Salon</span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-white/90 tracking-wide">
+            <button onclick="navigateTo('home', 'services')" class="hover:text-gold transition">Services</button>
+            <button onclick="navigateTo('team')" class="hover:text-gold transition">Our Team</button>
+            <button onclick="navigateTo('gallery')" class="hover:text-gold transition">Gallery</button>
+            <button onclick="navigateTo('booking')" class="hover:text-gold transition">Pricing & Booking</button>
+        </div>
+        <button onclick="navigateTo('booking')" class="bg-gold hover:bg-gold-dark text-white text-xs font-semibold uppercase tracking-widest px-5 py-3 rounded transition shadow-lg">
+            Reserve My Spot
+        </button>
+    </nav>
+
+    <div id="page-home" class="page-view active">
+        <header class="relative h-screen flex items-center justify-center bg-black">
+            <div class="absolute inset-0 z-0 bg-cover bg-center opacity-40" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920');"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40 z-0"></div>
+
+            <div class="relative z-10 max-w-4xl text-center px-4 text-white mt-12">
+                <span class="inline-flex items-center gap-2 text-gold text-xs font-semibold uppercase tracking-widest bg-white/5 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gold/20 mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span> Premium Beauty Experience
+                </span>
+                <h1 class="font-serif text-5xl md:text-7xl font-light tracking-tight leading-tight mb-6">
+                    Where Beauty Meets <br><span class="text-gold font-normal serif">Elegance</span>
+                </h1>
+                <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed mb-8">
+                    Discover a sanctuary of luxury where expert artistry meets cutting-edge treatments. Transform your look with personalized services designed to reveal your most radiant self.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="navigateTo('booking')" class="w-full sm:w-auto bg-gold hover:bg-gold-dark text-luxuryBlack font-semibold px-8 py-4 rounded transition flex items-center justify-center gap-2 group shadow-xl">
+                        Book Your Experience 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+                    <button onclick="scrollToSection('services')" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-medium px-8 py-4 rounded backdrop-blur-sm border border-white/20 transition text-center">
+                        Explore Services
+                    </button>
+                </div>
+            </div>
+
+            <div class="absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center justify-center gap-4 text-xs uppercase tracking-widest text-white/70">
+                <div class="hidden lg:flex justify-center items-center gap-12 mb-2">
+                    <div class="flex items-center gap-2"><span class="text-gold">✦</span> Certified Professionals</div>
+                    <div class="flex items-center gap-2"><span class="text-gold">✦</span> 5-Star Rated</div>
+                    <div class="flex items-center gap-2"><span class="text-gold">✦</span> Premium Products</div>
+                </div>
+                <div class="flex flex-col items-center gap-1 text-[10px] tracking-widest text-gray-400">
+                    <span>Scroll Down</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 animate-bounce text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-6l-7 7-7-7" /></svg>
+                </div>
+            </div>
+        </header>
+
+        <section id="services" class="py-24 px-6 max-w-7xl mx-auto text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-3">Our Services</span>
+            <h2 class="font-serif text-3xl md:text-4xl font-normal text-luxuryBlack mb-4">Luxury Treatments for Every Need</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto font-light mb-16">From precision cuts to rejuvenating spa treatments, we offer a comprehensive range of beauty services tailored to your unique needs.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 text-left border border-gray-100 flex flex-col h-full group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=600" alt="Hair Services" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="text-gold text-xl mb-3"></div>
+                            <h3 class="font-serif text-xl font-medium text-luxuryBlack mb-2">Hair Services</h3>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Cuts, color, styling & professional treatments customized for you.</p>
+                        </div>
+                        <button onclick="navigateTo('hair-services')" class="text-xs uppercase tracking-widest font-semibold text-gold hover:text-gold-dark flex items-center gap-1 transition mt-auto">
+                            Learn More <span class="text-sm">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 text-left border border-gray-100 flex flex-col h-full group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=600" alt="Skin Care" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="text-gold text-xl mb-3"></div>
+                            <h3 class="font-serif text-xl font-medium text-luxuryBlack mb-2">Skin Care</h3>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Facials, peels & rejuvenation therapies for glowing health.</p>
+                        </div>
+                        <button onclick="navigateTo('skin-services')" class="text-xs uppercase tracking-widest font-semibold text-gold hover:text-gold-dark flex items-center gap-1 transition mt-auto">
+                            Learn More <span class="text-sm">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 text-left border border-gray-100 flex flex-col h-full group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" alt="Nail Services" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="text-gold text-xl mb-3"></div>
+                            <h3 class="font-serif text-xl font-medium text-luxuryBlack mb-2">Nail Services</h3>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Manicures, pedicures & custom nail art with premium polish.</p>
+                        </div>
+                        <button onclick="navigateTo('nail-services')" class="text-xs uppercase tracking-widest font-semibold text-gold hover:text-gold-dark flex items-center gap-1 transition mt-auto">
+                            Learn More <span class="text-sm">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 text-left border border-gray-100 flex flex-col h-full group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=600" alt="Spa & Wellness" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="text-gold text-xl mb-3"></div>
+                            <h3 class="font-serif text-xl font-medium text-luxuryBlack mb-2">Spa & Wellness</h3>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Massages, aromatherapy & comprehensive holistic body rituals.</p>
+                        </div>
+                        <button onclick="navigateTo('spa-services')" class="text-xs uppercase tracking-widest font-semibold text-gold hover:text-gold-dark flex items-center gap-1 transition mt-auto">
+                            Learn More <span class="text-sm">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12">
+                <button onclick="navigateTo('all-services')" class="border border-gold text-gold hover:bg-gold hover:text-white transition px-8 py-3.5 rounded text-xs uppercase tracking-widest font-semibold flex items-center gap-2 mx-auto">
+                    View All Services <span>→</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="why-choose-us" class="bg-luxuryBlack text-white py-24 px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative px-4 lg:px-0">
+                    <div class="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=1000" alt="Luxury Massage Therapy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 left-10 bg-white text-luxuryBlack px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 border border-gold/20 backdrop-blur-md">
+                        <div class="bg-gold/10 p-3 rounded-lg text-gold text-xl"></div>
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-luxuryBlack">15+</div>
+                            <div class="text-[10px] uppercase tracking-widest text-gray-500 font-semibold">Years of Excellence</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-3">Why Choose Us</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-light tracking-tight leading-tight mb-6">
+                        Experience the Art of <br><span class="text-gold font-normal">Luxury Beauty</span>
+                    </h2>
+                    <p class="text-gray-400 font-light leading-relaxed mb-10 text-sm md:text-base">
+                        At LuxeAura Salon, we believe beauty is an art form. Our team of certified experts combines traditional techniques with modern innovations to deliver exceptional results that exceed expectations.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                        <div class="flex gap-4 cursor-pointer hover:opacity-80 transition" onclick="navigateTo('team')">
+                            <div class="text-gold text-lg mt-0.5"></div>
+                            <div>
+                                <h4 class="font-medium text-sm tracking-wide mb-1">Expert Stylists</h4>
+                                <p class="text-gray-400 text-xs font-light leading-relaxed">Certified professionals with years of global luxury industry experience.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-gold text-lg mt-0.5"></div>
+                            <div>
+                                <h4 class="font-medium text-sm tracking-wide mb-1">Premium Products</h4>
+                                <p class="text-gray-400 text-xs font-light leading-relaxed">Only the finest, sustainably-sourced luxury beauty brands touch your skin.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-gold text-lg mt-0.5"></div>
+                            <div>
+                                <h4 class="font-medium text-sm tracking-wide mb-1">Personalized Care</h4>
+                                <p class="text-gray-400 text-xs font-light leading-relaxed">Treatments completely customized and tailored to your unique biology.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-gold text-lg mt-0.5"></div>
+                            <div>
+                                <h4 class="font-medium text-sm tracking-wide mb-1">Satisfaction Guaranteed</h4>
+                                <p class="text-gray-400 text-xs font-light leading-relaxed">Your ultimate comfort, happiness, and peace of mind is our top priority.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="signature" class="py-24 px-6 max-w-7xl mx-auto text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-3">Featured Treatments</span>
+            <h2 class="font-serif text-3xl md:text-4xl font-normal text-luxuryBlack mb-4">Signature Experiences</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto font-light mb-16">Indulge in our most sought-after treatments, carefully curated for ultimate relaxation and rejuvenation.</p>
+
+            <div class="flex overflow-x-auto lg:grid lg:grid-cols-3 gap-8 snap-x snap-mandatory pb-6 no-scrollbar">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-none w-[85vw] sm:w-[50vw] lg:w-auto snap-start text-left group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=600" alt="Hot Stone" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-amber-600 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Most Popular</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-medium text-luxuryBlack mb-1">Hot Stone Therapy</h3>
+                        <p class="text-gray-400 text-xs font-light mb-6">Deep relaxation infused with heated, basalt volcanic mineral stones.</p>
+                        <div class="flex justify-between items-center border-t border-gray-50 pt-4">
+                            <div>
+                                <span class="text-gray-400 text-xs font-light">From</span>
+                                <span class="text-luxuryBlack font-semibold text-lg ml-1">$120</span>
+                            </div>
+                            <button onclick="selectItemAndBook('item-hotstone')" class="bg-gray-900 hover:bg-gold text-white p-2.5 rounded-full transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-none w-[85vw] sm:w-[50vw] lg:w-auto snap-start text-left group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600" alt="Aromatherapy" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-gold text-luxuryBlack text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">New</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-medium text-luxuryBlack mb-1">Aromatherapy Journey</h3>
+                        <p class="text-gray-400 text-xs font-light mb-6">Essential oils & curated traditional Swedish soft massage fusion.</p>
+                        <div class="flex justify-between items-center border-t border-gray-50 pt-4">
+                            <div>
+                                <span class="text-gray-400 text-xs font-light">From</span>
+                                <span class="text-luxuryBlack font-semibold text-lg ml-1">$95</span>
+                            </div>
+                            <button onclick="selectItemAndBook('item-aromatherapy')" class="bg-gray-900 hover:bg-gold text-white p-2.5 rounded-full transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-none w-[85vw] sm:w-[50vw] lg:w-auto snap-start text-left group">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&q=80&w=600" alt="Royal Spa" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-zinc-800 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Premium</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-medium text-luxuryBlack mb-1">Royal Spa Package</h3>
+                        <p class="text-gray-400 text-xs font-light mb-6">Full body deep indulgence, featuring our luxury 3-hour experience.</p>
+                        <div class="flex justify-between items-center border-t border-gray-50 pt-4">
+                            <div>
+                                <span class="text-gray-400 text-xs font-light">From</span>
+                                <span class="text-luxuryBlack font-semibold text-lg ml-1">$250</span>
+                            </div>
+                            <button onclick="selectItemAndBook('item-royal')" class="bg-gray-900 hover:bg-gold text-white p-2.5 rounded-full transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-28 px-6 bg-cover bg-center text-center text-white" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920');">
+            <div class="absolute inset-0 bg-black/75 z-0"></div>
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-4">Ready for Transformation?</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-light tracking-tight mb-6">Book Your Appointment Today</h2>
+                <p class="text-gray-300 font-light leading-relaxed mb-10 max-w-xl mx-auto text-sm md:text-base">
+                    Take the first step toward your ultimate bespoke beauty experience. Our expert styling team is ready to help you unlock your most radiant version.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="navigateTo('booking')" class="w-full sm:w-auto bg-gold hover:bg-gold-dark text-luxuryBlack font-semibold px-8 py-4 rounded transition flex items-center justify-center gap-2 tracking-wide shadow-xl">
+                         Book Now
+                    </button>
+                    <button onclick="scrollToSection('contact-footer')" class="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-medium px-8 py-4 rounded border border-white/40 transition flex items-center justify-center gap-2">
+                         Contact Us
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-gallery" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-20 px-6 text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-2">Visual Inspirations</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-light mb-4">The Transformation Gallery</h1>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto font-light">Explore real results of custom signature styling, complex color adjustments, and restorative skin rejuvenation therapies.</p>
+            
+            <div class="flex justify-center items-center gap-3 mt-8 flex-wrap text-xs uppercase tracking-widest">
+                <button onclick="filterGallery('all')" class="px-4 py-2 border border-gold bg-gold text-luxuryBlack rounded font-medium transition" id="filter-all">All Projects</button>
+                <button onclick="filterGallery('hair')" class="px-4 py-2 border border-zinc-800 text-gray-400 rounded hover:border-gold hover:text-white transition" id="filter-hair">Hair Art</button>
+                <button onclick="filterGallery('skin')" class="px-4 py-2 border border-zinc-800 text-gray-400 rounded hover:border-gold hover:text-white transition" id="filter-skin">Skin MedSpa</button>
+                <button onclick="filterGallery('nails')" class="px-4 py-2 border border-zinc-800 text-gray-400 rounded hover:border-gold hover:text-white transition" id="filter-nails">Nail Salon</button>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="gallery-item hair overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group">
+                <div class="h-80 overflow-hidden"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"></div>
+                <div class="p-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Hair Couture</span>
+                    <h4 class="font-serif text-lg text-luxuryBlack font-medium">Dimensional Ash Blonde Balayage</h4>
+                </div>
+            </div>
+            <div class="gallery-item skin overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group">
+                <div class="h-80 overflow-hidden"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"></div>
+                <div class="p-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Skin Radiance</span>
+                    <h4 class="font-serif text-lg text-luxuryBlack font-medium">Bespoke Deep Hydration Therapy</h4>
+                </div>
+            </div>
+            <div class="gallery-item nails overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group">
+                <div class="h-80 overflow-hidden"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"></div>
+                <div class="p-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Nail Artistry</span>
+                    <h4 class="font-serif text-lg text-luxuryBlack font-medium">High-Gloss Chrome Gel Overlay</h4>
+                </div>
+            </div>
+            <div class="gallery-item hair overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group">
+                <div class="h-80 overflow-hidden"><img src="https://images.unsplash.com/photo-1605497746444-ac9da5848ba7?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"></div>
+                <div class="p-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Hair Couture</span>
+                    <h4 class="font-serif text-lg text-luxuryBlack font-medium">Precision Sleek Modern Bob Cut</h4>
+                </div>
+            </div>
+            <div class="gallery-item skin overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group">
+                <div class="h-80 overflow-hidden"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"></div>
+                <div class="p-6">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Spa & Body</span>
+                    <h4 class="font-serif text-lg text-luxuryBlack font-medium">Thermal Hot Basalt Stone Massage</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-team" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-20 px-6 text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-2">Master Artists</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-light mb-4">Meet Our Elite Specialists</h1>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto font-light">An exceptional luxury crew combining global runway techniques with cutting-edge dermatology sciences.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center group">
+                <div class="h-96 rounded-2xl overflow-hidden mb-6 shadow-md border border-gray-100"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover transform group-hover:scale-102 transition duration-300"></div>
+                <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Founder & Style Director</span>
+                <h3 class="font-serif text-xl font-medium text-luxuryBlack">Elena Rostova</h3>
+                <p class="text-gray-400 font-light text-xs mt-2 px-4">12+ years styling for premium European fashion showcases.</p>
+            </div>
+            <div class="text-center group">
+                <div class="h-96 rounded-2xl overflow-hidden mb-6 shadow-md border border-gray-100"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover transform group-hover:scale-102 transition duration-300"></div>
+                <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Aesthetic Medical Specialist</span>
+                <h3 class="font-serif text-xl font-medium text-luxuryBlack">Dr. Marcus Vance</h3>
+                <p class="text-gray-400 font-light text-xs mt-2 px-4">Certified clinical expert specialized in biological skin barrier repairs.</p>
+            </div>
+            <div class="text-center group">
+                <div class="h-96 rounded-2xl overflow-hidden mb-6 shadow-md border border-gray-100"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover transform group-hover:scale-102 transition duration-300"></div>
+                <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-1">Senior Avant-Garde Nail Artist</span>
+                <h3 class="font-serif text-xl font-medium text-luxuryBlack">Amara Sterling</h3>
+                <p class="text-gray-400 font-light text-xs mt-2 px-4">Specializes in luxury structurally sculpted extensions and high-gloss multi-texture art.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-booking" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-24 px-6 relative bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920');">
+            <div class="absolute inset-0 bg-black/85 z-0"></div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-3">Reservations</span>
+                <h1 class="font-serif text-4xl md:text-6xl font-light mb-6">Bespoke Scheduling</h1>
+                <p class="text-gray-400 max-w-xl mx-auto font-light text-sm">Select your premium luxury treatments below. Your automated live selection metrics will refresh immediately inside the reservation summary card.</p>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 class="font-serif text-xl text-luxuryBlack mb-6 font-medium">1. Select Luxury Packages & Services</h3>
+                    <div class="space-y-4">
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-gold border-b pb-1 mt-2">Signature Packages</div>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-hotstone" name="packages" value="120" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">Signature Hot Stone Therapy</div>
+                                    <div class="text-xs text-gray-400 font-light">90 mins • Relaxing Mineral Volcanic Stone Massage</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$120</div>
+                        </label>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-aromatherapy" name="packages" value="95" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">Aromatherapy Journey Treatment</div>
+                                    <div class="text-xs text-gray-400 font-light">60 mins • Essential Oils Swedish Fusion</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$95</div>
+                        </label>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-royal" name="packages" value="250" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">Royal Ultimate Spa Combo</div>
+                                    <div class="text-xs text-gray-400 font-light">180 mins • Full Body Restorative Ritual Suite</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$250</div>
+                        </label>
+
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-gold border-b pb-1 pt-4">Individual Menu Treatments</div>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-cut" name="packages" value="85" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">Couture Cut & Blowout</div>
+                                    <div class="text-xs text-gray-400 font-light">Hair Architecture Studio</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$85</div>
+                        </label>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-balayage" name="packages" value="195" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">Balayage / Artisan Highlights</div>
+                                    <div class="text-xs text-gray-400 font-light">Organic Multi-Tone Complex Color Application</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$195</div>
+                        </label>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-hydrafacial" name="packages" value="140" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">LuxeAura HydraFacial Treatment</div>
+                                    <div class="text-xs text-gray-400 font-light">Advanced Cellular Dermal Fluid Extraction</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$140</div>
+                        </label>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-nails" name="packages" value="75" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">Bespoke Gel Mani & Spa Pedi</div>
+                                    <div class="text-xs text-gray-400 font-light">Precision High-Gloss Cuticle Refinement Art</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$75</div>
+                        </label>
+                        <label class="flex justify-between items-center p-4 rounded-xl border border-gray-200 cursor-pointer hover:border-gold transition">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="item-deep-tissue" name="packages" value="110" onchange="calculateCart()" class="accent-gold w-4 h-4">
+                                <div>
+                                    <div class="font-medium text-sm text-luxuryBlack">Deep Tissue Zen Alignment</div>
+                                    <div class="text-xs text-gray-400 font-light">Targeted Muscle Recovery Acceleration Work</div>
+                                </div>
+                            </div>
+                            <div class="text-gold font-semibold">$110</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="sm:col-span-2"><h3 class="font-serif text-xl text-luxuryBlack font-medium">2. Date & Guest Detail</h3></div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">Preferred Date</label>
+                        <input type="date" id="bookDate" class="w-full p-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">Preferred Time</label>
+                        <select id="bookTime" class="w-full p-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gold">
+                            <option>09:00 AM</option><option>12:00 PM</option><option>03:00 PM</option><option>06:00 PM</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">Full Name</label>
+                        <input type="text" id="bookName" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">Phone Number</label>
+                        <input type="tel" id="bookPhone" placeholder="(555) 000-0000" class="w-full p-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-luxuryBlack text-white p-8 rounded-2xl h-fit border border-zinc-800 shadow-xl lg:sticky lg:top-8">
+                <h3 class="font-serif text-lg text-gold mb-6 pb-2 border-b border-zinc-800">Reservation Summary</h3>
+                <div class="space-y-3 text-xs font-light text-gray-400">
+                    <div class="flex justify-between"><span>Subtotal Packages</span><span class="text-white font-medium" id="summarySubtotal">$0.00</span></div>
+                    <div class="flex justify-between"><span>Luxury Tax & Amenities (10%)</span><span class="text-white font-medium" id="summaryTax">$0.00</span></div>
+                    <div class="pt-4 border-t border-zinc-800 flex justify-between text-sm text-white font-medium">
+                        <span>Total Due</span><span class="text-gold font-serif text-lg" id="summaryTotal">$0.00</span>
+                    </div>
+                </div>
+                <button onclick="confirmLuxuryAppointment()" class="w-full bg-gold hover:bg-gold-dark text-luxuryBlack text-xs font-semibold uppercase tracking-widest py-4 rounded-xl transition mt-8 shadow-lg">
+                    Confirm Appointment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-hair-services" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-20 px-6 text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-2">Premium Hair Studio</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-light mb-4">Cuts, Color & Creative Artistry</h1>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto font-light">Transform your statement look with precision styling curated intentionally by world-class professional artisans.</p>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <div class="bg-white p-6 rounded-xl border border-gray-100 flex justify-between items-center shadow-sm">
+                <div>
+                    <h3 class="font-serif text-lg text-luxuryBlack font-medium">Couture Cut & Blowout</h3>
+                    <p class="text-gray-400 text-xs font-light mt-1">Includes tailored hair analysis, custom essential wash wash, and precision styling configuration.</p>
+                </div>
+                <div class="text-right"><div class="text-gold font-medium text-lg">$85</div><button onclick="selectItemAndBook('item-cut')" class="text-[10px] uppercase font-bold text-gray-900 tracking-wider hover:text-gold mt-2 block">Select</button></div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-100 flex justify-between items-center shadow-sm">
+                <div>
+                    <h3 class="font-serif text-lg text-luxuryBlack font-medium">Balayage / Artisan Highlights</h3>
+                    <p class="text-gray-400 text-xs font-light mt-1">Sustainably sourced non-toxic luxury color integration tailored organically to skin tone architecture.</p>
+                </div>
+                <div class="text-right"><div class="text-gold font-medium text-lg">$195</div><button onclick="selectItemAndBook('item-balayage')" class="text-[10px] uppercase font-bold text-gray-900 tracking-wider hover:text-gold mt-2 block">Select</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-skin-services" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-20 px-6 text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-2">Dermatology & Radiance</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-light mb-4">Advanced Skincare MedSpas</h1>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto font-light">Revitalize deep cell cellular health with premium targeted custom treatments designed for high-end glowing clarity.</p>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <div class="bg-white p-6 rounded-xl border border-gray-100 flex justify-between items-center shadow-sm">
+                <div>
+                    <h3 class="font-serif text-lg text-luxuryBlack font-medium">LuxeAura HydraFacial</h3>
+                    <p class="text-gray-400 text-xs font-light mt-1">Intense dynamic micro-nutrient extraction, deep botanical hydration, and pure antioxidant infusion.</p>
+                </div>
+                <div class="text-right"><div class="text-gold font-medium text-lg">$140</div><button onclick="selectItemAndBook('item-hydrafacial')" class="text-[10px] uppercase font-bold text-gray-900 tracking-wider hover:text-gold mt-2 block">Select</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-nail-services" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-20 px-6 text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-2">Manicure & Artistry</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-light mb-4">Precision Hand & Foot Care</h1>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto font-light">Impeccable nail sculpting, organic mineral exfoliants, and bespoke custom avant-garde nail design.</p>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <div class="bg-white p-6 rounded-xl border border-gray-100 flex justify-between items-center shadow-sm">
+                <div>
+                    <h3 class="font-serif text-lg text-luxuryBlack font-medium">Bespoke Gel Mani & Spa Pedi</h3>
+                    <p class="text-gray-400 text-xs font-light mt-1">Complete cuticle refinement paired with high-gloss premium scratch-resistant signature polishes.</p>
+                </div>
+                <div class="text-right"><div class="text-gold font-medium text-lg">$75</div><button onclick="selectItemAndBook('item-nails')" class="text-[10px] uppercase font-bold text-gray-900 tracking-wider hover:text-gold mt-2 block">Select</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-spa-services" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-20 px-6 text-center">
+            <span class="text-gold text-xs font-semibold uppercase tracking-widest block mb-2">Holistic Rituals</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-light mb-4">Sanctuary Meditation & Bodywork</h1>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto font-light">Unwind stress architectures within safe premium treatment rooms optimized with custom organic essential soundscapes.</p>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <div class="bg-white p-6 rounded-xl border border-gray-100 flex justify-between items-center shadow-sm">
+                <div>
+                    <h3 class="font-serif text-lg text-luxuryBlack font-medium">Deep Tissue Zen Alignment</h3>
+                    <p class="text-gray-400 text-xs font-light mt-1">Targeted neuromuscular thermal applications focusing entirely on recovery acceleration.</p>
+                </div>
+                <div class="text-right"><div class="text-gold font-medium text-lg">$110</div><button onclick="selectItemAndBook('item-deep-tissue')" class="text-[10px] uppercase font-bold text-gray-900 tracking-wider hover:text-gold mt-2 block">Select</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-all-services" class="page-view">
+        <div class="bg-luxuryBlack text-white pt-32 pb-16 px-6 text-center">
+            <h1 class="font-serif text-4xl font-light">Comprehensive Treatment Menu</h1>
+        </div>
+        <div class="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                <h3 class="font-serif text-xl text-gold font-semibold mb-4 border-b pb-2">Hair Architecture Studio</h3>
+                <div class="flex justify-between py-3 text-sm border-b border-gray-50"><span>Couture Style Cut Design</span><span class="font-semibold text-luxuryBlack">$85</span></div>
+                <div class="flex justify-between py-3 text-sm border-b border-gray-50"><span>Balayage Multi-Tone Color</span><span class="font-semibold text-luxuryBlack">$195</span></div>
+                <button onclick="navigateTo('booking')" class="text-xs uppercase tracking-widest font-semibold text-gold mt-4 block hover:text-gold-dark">Book Hair Catalog →</button>
+            </div>
+            <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                <h3 class="font-serif text-xl text-gold font-semibold mb-4 border-b pb-2">Advanced Dermal & Spa</h3>
+                <div class="flex justify-between py-3 text-sm border-b border-gray-50"><span>LuxeAura HydraFacial</span><span class="font-semibold text-luxuryBlack">$140</span></div>
+                <div class="flex justify-between py-3 text-sm border-b border-gray-50"><span>Bespoke Gel Mani Suite</span><span class="font-semibold text-luxuryBlack">$75</span></div>
+                <div class="flex justify-between py-3 text-sm border-b border-gray-50"><span>Deep Tissue Zen Alignment</span><span class="font-semibold text-luxuryBlack">$110</span></div>
+                <button onclick="navigateTo('booking')" class="text-xs uppercase tracking-widest font-semibold text-gold mt-4 block hover:text-gold-dark">Book Medical Catalog →</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-privacy" class="page-view">
+        <div class="max-w-3xl mx-auto px-6 pt-36 pb-24 prose text-gray-600">
+            <h1 class="font-serif text-3xl text-luxuryBlack mb-6 font-medium">Privacy Declaration</h1>
+            <p class="font-light text-sm leading-relaxed mb-4">Your data privacy remains critically important to LuxeAura Salon.</p>
+        </div>
+    </div>
+    <div id="page-terms" class="page-view">
+        <div class="max-w-3xl mx-auto px-6 pt-36 pb-24 prose text-gray-600">
+            <h1 class="font-serif text-3xl text-luxuryBlack mb-6 font-medium">Terms of Luxury Service</h1>
+            <p class="font-light text-sm leading-relaxed mb-4">Appointments require notice adjustments 24 hours prior to block timelines.</p>
+        </div>
+    </div>
+    <div id="page-faq" class="page-view">
+        <div class="max-w-3xl mx-auto px-6 pt-36 pb-24">
+            <h1 class="font-serif text-3xl text-luxuryBlack mb-8 text-center font-medium">Frequently Answered Queries</h1>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl border border-gray-100">
+                    <h4 class="font-medium text-luxuryBlack text-sm mb-2">What premium product brands do you support?</h4>
+                    <p class="text-gray-500 font-light text-xs leading-relaxed">We source top-tier, non-toxic luxury beauty lines designed to protect skin cuticles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact-footer" class="bg-luxuryBlack text-gray-400 text-sm py-16 px-6 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div>
+                <div class="text-gold font-serif text-2xl font-bold tracking-wide leading-none mb-4 cursor-pointer" onclick="navigateTo('home')">
+                    LuxeAura
+                    <span class="text-[9px] uppercase tracking-[0.3em] block text-gray-400 mt-1">Salon</span>
+                </div>
+                <p class="text-zinc-500 font-light leading-relaxed mb-6 text-xs">Where beauty meets elegance. Experience high-end luxury beauty services intentionally designed to safely transform and deeply rejuvenate your mind and body.</p>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-semibold uppercase tracking-widest mb-4 border-b border-zinc-900 pb-2">Quick Navigation</h4>
+                <ul class="space-y-2 text-xs font-light">
+                    <li><button onclick="navigateTo('home', 'services')" class="hover:text-gold transition">Services Layout</button></li>
+                    <li><button onclick="navigateTo('team')" class="hover:text-gold transition">Our Elite Crew</button></li>
+                    <li><button onclick="navigateTo('gallery')" class="hover:text-gold transition">Media Gallery</button></li>
+                    <li><button onclick="navigateTo('booking')" class="hover:text-gold transition">Tiered Pricing & Booking</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-semibold uppercase tracking-widest mb-4 border-b border-zinc-900 pb-2">Services Studio</h4>
+                <ul class="space-y-2 text-xs font-light">
+                    <li><button onclick="navigateTo('hair-services')" class="hover:text-gold transition">Hair Architecture Cuts</button></li>
+                    <li><button onclick="navigateTo('skin-services')" class="hover:text-gold transition">Skin Care Facials</button></li>
+                    <li><button onclick="navigateTo('nail-services')" class="hover:text-gold transition">Nail Art Extensions</button></li>
+                    <li><button onclick="navigateTo('spa-services')" class="hover:text-gold transition">Spa Restorative Alignment</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-xs font-semibold uppercase tracking-widest mb-4 border-b border-zinc-900 pb-2">Contact Channels</h4>
+                <ul class="space-y-3 text-xs font-light">
+                    <li class="flex items-start gap-2"><span>📍</span><span>123 Beauty Avenue, New York, NY 10001</span></li>
+                    <li class="flex items-center gap-2"><span>📞</span><span>(123) 456-7890</span></li>
+                    <li class="flex items-center gap-2 text-gold font-medium cursor-pointer" onclick="window.open('https://wa.me/11234567890')"><span>💬</span><span>WhatsApp Us Directly</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-zinc-900 flex flex-col sm:flex-row justify-between items-center text-[11px] font-light text-zinc-600 gap-4">
+            <div>© 2026 LuxeAura Salon. All rights reserved.</div>
+            <div class="flex space-x-6">
+                <button onclick="navigateTo('privacy')" class="hover:text-gold transition">Privacy Policy</button>
+                <button onclick="navigateTo('terms')" class="hover:text-gold transition">Terms of Service</button>
+                <button onclick="navigateTo('faq')" class="hover:text-gold transition">FAQ</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Core Router Engine
+        function navigateTo(pageId, targetSectionId = null) {
+            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+            const activePage = document.getElementById('page-' + pageId);
+            if(activePage) {
+                activePage.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            if(targetSectionId) {
+                setTimeout(() => scrollToSection(targetSectionId), 50);
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            const el = document.getElementById(sectionId);
+            if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Gallery Filter Logic
+        function filterGallery(category) {
+            const tabs = ['all', 'hair', 'skin', 'nails'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById('filter-' + tab);
+                if(btn) {
+                    btn.className = "px-4 py-2 border border-zinc-800 text-gray-400 rounded hover:border-gold hover:text-white transition";
+                }
+            });
+            const activeBtn = document.getElementById('filter-' + category);
+            if(activeBtn) activeBtn.className = "px-4 py-2 border border-gold bg-gold text-luxuryBlack rounded font-medium transition";
+
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                if(category === 'all' || item.classList.contains(category)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        // Cross-Page Pre-selection Deep Link Hook
+        function selectItemAndBook(elementId) {
+            navigateTo('booking');
+            // Uncheck other elements to safely isolate selection intent if navigating directly from specific cards
+            document.querySelectorAll('input[name="packages"]').forEach(box => box.checked = false);
+            
+            const targetedBox = document.getElementById(elementId);
+            if(targetedBox) targetedBox.checked = true;
+            calculateCart();
+        }
+
+        // Reactive Cart Total Processing Engine
+        function calculateCart() {
+            let subtotal = 0;
+            document.querySelectorAll('input[name="packages"]').forEach(box => {
+                if(box.checked) subtotal += parseFloat(box.value);
+            });
+
+            let tax = subtotal * 0.10;
+            let total = subtotal + tax;
+
+            document.getElementById('summarySubtotal').innerText = '$' + subtotal.toFixed(2);
+            document.getElementById('summaryTax').innerText = '$' + tax.toFixed(2);
+            document.getElementById('summaryTotal').innerText = '$' + total.toFixed(2);
+        }
+
+        // Verification & Submission Confirmation Dialog Intercepts
+        function confirmLuxuryAppointment() {
+            const date = document.getElementById('bookDate').value;
+            const time = document.getElementById('bookTime').value;
+            const name = document.getElementById('bookName').value.trim();
+            const phone = document.getElementById('bookPhone').value.trim();
+
+            let checkedCount = 0;
+            document.querySelectorAll('input[name="packages"]').forEach(box => { if(box.checked) checkedCount++; });
+
+            if(checkedCount === 0) {
+                alert('Please choose at least one premium treatment item menu from the layout.');
+                return;
+            }
+            if(!date || !name || !phone) {
+                alert('Please provide your name, phone numbers, and reservation date parameter coordinates.');
+                return;
+            }
+
+            alert(`Thank you for booking with LuxeAura Salon, ${name}!\nYour high-end luxury treatment has been synchronized for ${date} at ${time}.`);
+            
+            // Clean dynamic interface state
+            document.querySelectorAll('input[name="packages"]').forEach(box => box.checked = false);
+            document.getElementById('bookDate').value = "";
+            document.getElementById('bookName').value = "";
+            document.getElementById('bookPhone').value = "";
+            calculateCart();
+            navigateTo('home');
+        }
+    </script>
+</body>
+</html>
